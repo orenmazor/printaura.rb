@@ -7,9 +7,10 @@ module Printaura
       options = args.last || {}
 
       postparams= options.update({key: Printaura::Config.API_KEY, hash: Printaura::Config.API_HASH, method: m}).map {|k,v| "#{k}=#{v}"}.join("&")
-
       puts postparams
+
       result = JSON.parse(HTTParty.post("http://www.api.printaura.com/api.php", body: postparams))
+      puts result
       raise result["message"] unless result["status"]
 
       return result
