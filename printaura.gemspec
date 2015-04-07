@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Printaura::VERSION
   spec.authors       = ["oren mazor"]
   spec.email         = ["oren.mazor@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Basic API for talking to Printaura}
+  spec.description   = %q{Simple API for talking to Printaura}
   spec.homepage      = ""
   spec.license       = "MIT"
 

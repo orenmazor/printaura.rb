@@ -1,0 +1,11 @@
+require 'httparty'
+
+module Printaura
+  class Api
+    def self.method_missing(m, *args, &block)
+      # is it always a post?
+      body = {key: Printaura::Config.API_KEY, hash: Printaura::Config.API_HASH}
+      puts HTTParty.post("http://www.api.printaura.com/api.php", body: )
+    end
+  end
+end
