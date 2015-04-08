@@ -1,4 +1,4 @@
-require 'httparty'
+require 'rest-client'
 
 module Printaura
   class Api
@@ -6,11 +6,11 @@ module Printaura
       #we only really care about the array options
       options = args.last || {}
 
-      postparams= options.update({key: Printaura::Config.API_KEY, hash: Printaura::Config.API_HASH, method: m}).map {|k,v| "#{k}=#{v}"}.join("&")
+      postparams= {key: Printaura::Config.API_KEY, hash: Printaura::Config.API_HASH, method: m}.update(options)
       puts postparams
 
-      result = JSON.parse(HTTParty.post("http://www.api.printaura.com/api.php", body: postparams))
-      puts result
+      result = JSON.parse(RestClient.post("http://www.api.printaura.com/api.php", postparams))
+
       raise result["message"] unless result["status"]
 
       return result

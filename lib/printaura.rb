@@ -1,5 +1,6 @@
 require "printaura/version"
 require "printaura/product"
+require "printaura/image"
 
 module Printaura
   class Config
