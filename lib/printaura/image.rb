@@ -10,7 +10,7 @@ module Printaura
       end
 
       result = Api.uploadimage({file: filename})
-      @image_id = nil
+      @image_id = result["results"]["image_id"]
     end
   end
 end
